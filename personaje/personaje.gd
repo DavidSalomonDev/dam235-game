@@ -31,9 +31,9 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	print("Un cuerpo ha entrado en el área: ", body.name)
+	print("El personaje a llegado a la meta: ", body.name)
 	
 	
 func damage_received():
-	print("daño recibido")
+	print("Impacto de bomba")
 	player_hit.emit()

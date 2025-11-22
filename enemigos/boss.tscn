@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://dgaheqby8ruce"]
 
-[ext_resource type="Texture2D" uid="uid://ochcjg3t4prm" path="res://assets/kenney/enemies/barrel_yellow.png" id="1_81q15"]
 [ext_resource type="Script" uid="uid://dsn0s4gmdk5qg" path="res://enemigos/boss.gd" id="1_iqxaj"]
 [ext_resource type="Texture2D" uid="uid://b2u7qeqx6fyrx" path="res://assets/kenney/enemies/bomb.png" id="2_bj37t"]
 [ext_resource type="Texture2D" uid="uid://o85dh5rbasi6" path="res://assets/kenney/enemies/saw_a.png" id="3_00e14"]
 [ext_resource type="Texture2D" uid="uid://dw8qx2cnl4b53" path="res://assets/kenney/enemies/character_handRed.png" id="3_sawk4"]
+[ext_resource type="Texture2D" uid="uid://yf2uxclyfl8m" path="res://assets/kenney/enemies/bomb_active.png" id="5_bj37t"]
 
 [sub_resource type="Animation" id="Animation_46q4g"]
-length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -177,8 +177,9 @@ texture = ExtResource("3_sawk4")
 
 [node name="BarrelYellow" type="Sprite2D" parent="CharacterSquareRed/CharacterHandRed"]
 visible = false
-position = Vector2(14, 16)
-texture = ExtResource("1_81q15")
+position = Vector2(27, 17)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("5_bj37t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
