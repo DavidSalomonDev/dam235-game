@@ -1,19 +1,22 @@
-[gd_scene load_steps=16 format=3 uid="uid://dva1s2482hdu"]
+[gd_scene load_steps=19 format=3 uid="uid://dva1s2482hdu"]
 
-[ext_resource type="Script" path="res://personaje/CameraFollow.gd" id="1_1h50n"]
-[ext_resource type="Texture2D" uid="uid://dvsc2vm55lnev" path="res://assets/kenney/decoration/background_tree.png" id="1_gfguo"]
+[ext_resource type="Script" uid="uid://d0jvacp7moed8" path="res://personaje/CameraFollow.gd" id="1_1h50n"]
 [ext_resource type="PackedScene" uid="uid://b6uqfrnmphs6d" path="res://suelos/puente.tscn" id="1_orcob"]
-[ext_resource type="Texture2D" uid="uid://dxylxb1ys1v2j" path="res://assets/kenney/decoration/background_treeLarge.png" id="2_d4oh4"]
-[ext_resource type="Texture2D" uid="uid://b01n6wvmhdncj" path="res://assets/kenney/decoration/flag.png" id="2_edwlm"]
 [ext_resource type="PackedScene" uid="uid://dpn282vwtwacc" path="res://personaje/personaje.tscn" id="2_f3i8q"]
 [ext_resource type="Texture2D" uid="uid://bxucwqdwwi1eq" path="res://assets/kenney/decoration/background_cloudA.png" id="3_4v7ll"]
 [ext_resource type="PackedScene" uid="uid://cnqx0yfe6tk6q" path="res://enemigos/barril.tscn" id="3_114ma"]
 [ext_resource type="Texture2D" uid="uid://cd4qfkandxjhh" path="res://assets/kenney/decoration/background_cloudB.png" id="4_2uubs"]
+[ext_resource type="Texture2D" uid="uid://d2ushe2n3vkh" path="res://assets/kenney/decoration/flag_green_b.png" id="4_chx5c"]
 [ext_resource type="PackedScene" uid="uid://bljdonn1lbqqj" path="res://suelos/platform.tscn" id="4_h2314"]
+[ext_resource type="Texture2D" uid="uid://do53txljanfgs" path="res://assets/kenney/decoration/fence_broken.png" id="5_dfbeo"]
 [ext_resource type="PackedScene" uid="uid://i6fbee67uc6n" path="res://suelos/top.tscn" id="5_oijb5"]
+[ext_resource type="Texture2D" uid="uid://c3cl5eh04thqo" path="res://assets/kenney/decoration/cactus.png" id="6_kxycb"]
+[ext_resource type="Texture2D" uid="uid://d0170qv0mwvht" path="res://assets/kenney/decoration/bush.png" id="9_w6u3o"]
+[ext_resource type="Texture2D" uid="uid://cijr4v8v6tech" path="res://assets/kenney/decoration/torch_on_a.png" id="10_kl5pw"]
 [ext_resource type="PackedScene" uid="uid://dgaheqby8ruce" path="res://enemigos/boss.tscn" id="10_pnl6e"]
+[ext_resource type="Texture2D" uid="uid://bvca1e3pg3o54" path="res://assets/kenney/decoration/window.png" id="11_24owi"]
 [ext_resource type="PackedScene" uid="uid://dj5jiwqy6m03p" path="res://ui/canvas_layer_ui.tscn" id="12_usisn"]
-[ext_resource type="Script" path="res://niveles/GameController.gd" id="13_1i60b"]
+[ext_resource type="Script" uid="uid://cfljqw56ujgff" path="res://niveles/GameController.gd" id="13_1i60b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbmyf"]
 size = Vector2(105, 59)
@@ -61,7 +64,7 @@ object_to_follow = NodePath("../Personaje")
 
 [node name="Flag" type="Sprite2D" parent="."]
 position = Vector2(369, -100)
-texture = ExtResource("2_edwlm")
+texture = ExtResource("4_chx5c")
 
 [node name="Area2D" type="Area2D" parent="Flag"]
 collision_layer = 0
@@ -74,16 +77,18 @@ shape = SubResource("RectangleShape2D_hbmyf")
 [node name="decoracion" type="Node2D" parent="."]
 
 [node name="BackgroundTree" type="Sprite2D" parent="decoracion"]
-position = Vector2(147, 542)
-texture = ExtResource("1_gfguo")
+position = Vector2(155, 563)
+texture = ExtResource("5_dfbeo")
 
 [node name="BackgroundTreeLarge" type="Sprite2D" parent="decoracion"]
-position = Vector2(106, 546)
-texture = ExtResource("2_d4oh4")
+position = Vector2(106, 555)
+scale = Vector2(1, 1.28125)
+texture = ExtResource("6_kxycb")
 
 [node name="BackgroundTree2" type="Sprite2D" parent="decoracion"]
-position = Vector2(1103, 477)
-texture = ExtResource("1_gfguo")
+position = Vector2(1103, 484)
+scale = Vector2(1, 1.21875)
+texture = ExtResource("6_kxycb")
 
 [node name="BackgroundCloudA" type="Sprite2D" parent="decoracion"]
 position = Vector2(902, -199)
@@ -97,6 +102,22 @@ texture = ExtResource("4_2uubs")
 position = Vector2(310, -301)
 scale = Vector2(-1, 1)
 texture = ExtResource("3_4v7ll")
+
+[node name="Bush" type="Sprite2D" parent="decoracion"]
+position = Vector2(392, 384)
+texture = ExtResource("9_w6u3o")
+
+[node name="Bush2" type="Sprite2D" parent="decoracion"]
+position = Vector2(1076, 239)
+texture = ExtResource("9_w6u3o")
+
+[node name="TorchOnA" type="Sprite2D" parent="decoracion"]
+position = Vector2(993, -63)
+texture = ExtResource("10_kl5pw")
+
+[node name="Window" type="Sprite2D" parent="decoracion"]
+position = Vector2(763, -306)
+texture = ExtResource("11_24owi")
 
 [node name="Suelos" type="Node2D" parent="."]
 
@@ -139,6 +160,10 @@ collision_layer = 2
 position = Vector2(172, -109)
 
 [node name="CanvasLayerUI" parent="." instance=ExtResource("12_usisn")]
+
+[node name="TorchOnA" type="Sprite2D" parent="."]
+position = Vector2(11, -115)
+texture = ExtResource("10_kl5pw")
 
 [connection signal="player_health_updated" from="GameController" to="CanvasLayerUI" method="_on_game_controller_player_health_updated"]
 [connection signal="time_updated" from="GameController" to="CanvasLayerUI" method="_on_game_controller_time_updated"]
