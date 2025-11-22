@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dva1s2482hdu"]
+[gd_scene load_steps=20 format=3 uid="uid://dva1s2482hdu"]
 
 [ext_resource type="Script" uid="uid://d0jvacp7moed8" path="res://personaje/CameraFollow.gd" id="1_1h50n"]
 [ext_resource type="PackedScene" uid="uid://b6uqfrnmphs6d" path="res://suelos/puente.tscn" id="1_orcob"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cijr4v8v6tech" path="res://assets/kenney/decoration/torch_on_a.png" id="10_kl5pw"]
 [ext_resource type="PackedScene" uid="uid://dgaheqby8ruce" path="res://enemigos/boss.tscn" id="10_pnl6e"]
 [ext_resource type="Texture2D" uid="uid://bvca1e3pg3o54" path="res://assets/kenney/decoration/window.png" id="11_24owi"]
+[ext_resource type="Texture2D" uid="uid://dqutpe12md5pv" path="res://assets/kenney/backgrounds/background_fade_trees.png" id="12_dfbeo"]
 [ext_resource type="PackedScene" uid="uid://dj5jiwqy6m03p" path="res://ui/canvas_layer_ui.tscn" id="12_usisn"]
 [ext_resource type="Script" uid="uid://cfljqw56ujgff" path="res://niveles/GameController.gd" id="13_1i60b"]
 
@@ -22,6 +23,11 @@
 size = Vector2(105, 59)
 
 [node name="Level1" type="Node2D"]
+
+[node name="BackgroundFadeTrees" type="Sprite2D" parent="."]
+position = Vector2(548.0001, 237.00003)
+scale = Vector2(6.687499, 5.1328125)
+texture = ExtResource("12_dfbeo")
 
 [node name="GameController" type="Node2D" parent="."]
 script = ExtResource("13_1i60b")
@@ -105,6 +111,7 @@ texture = ExtResource("3_4v7ll")
 
 [node name="Bush" type="Sprite2D" parent="decoracion"]
 position = Vector2(392, 384)
+rotation = 0.11425238
 texture = ExtResource("9_w6u3o")
 
 [node name="Bush2" type="Sprite2D" parent="decoracion"]
@@ -118,6 +125,10 @@ texture = ExtResource("10_kl5pw")
 [node name="Window" type="Sprite2D" parent="decoracion"]
 position = Vector2(763, -306)
 texture = ExtResource("11_24owi")
+
+[node name="TorchOnA2" type="Sprite2D" parent="decoracion"]
+position = Vector2(11, -115)
+texture = ExtResource("10_kl5pw")
 
 [node name="Suelos" type="Node2D" parent="."]
 
@@ -160,10 +171,6 @@ collision_layer = 2
 position = Vector2(172, -109)
 
 [node name="CanvasLayerUI" parent="." instance=ExtResource("12_usisn")]
-
-[node name="TorchOnA" type="Sprite2D" parent="."]
-position = Vector2(11, -115)
-texture = ExtResource("10_kl5pw")
 
 [connection signal="player_health_updated" from="GameController" to="CanvasLayerUI" method="_on_game_controller_player_health_updated"]
 [connection signal="time_updated" from="GameController" to="CanvasLayerUI" method="_on_game_controller_time_updated"]

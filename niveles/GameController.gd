@@ -13,12 +13,11 @@ func game_over():
 	
 func game_victory():
 	var scene_finish_instance = preload(SCENE_FINISH_FILE).instantiate()
-	scene_finish_instance.set_title("HAS GANADO")
+	scene_finish_instance.set_title("FELICIDADES HAS GANADO")
 	add_child(scene_finish_instance)
 
 
 func _on_personaje_player_hit():
-	print("Game controller se ha enterado de que el jugador sufrio daño")
 	if player_health > 0:
 		player_health = player_health - 1
 		player_health_updated.emit(player_health)

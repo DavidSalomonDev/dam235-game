@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dj5jiwqy6m03p"]
 
-[ext_resource type="Script" path="res://ui/canvas_layer_ui.gd" id="1_acnty"]
+[ext_resource type="Script" uid="uid://bexpydf6ufrsv" path="res://ui/canvas_layer_ui.gd" id="1_acnty"]
 [ext_resource type="Texture2D" uid="uid://ymgihcw8jc76" path="res://assets/kenney/ui/back.png" id="1_qxxiy"]
-[ext_resource type="Texture2D" uid="uid://d20771hcptbkl" path="res://assets/kenney/ui/tile_heart_morado.png" id="2_w36rc"]
+[ext_resource type="Texture2D" uid="uid://ie6k61ves2h0" path="res://assets/kenney/ui/hud_heart.png" id="3_0nig0"]
 
 [node name="CanvasLayerUI" type="CanvasLayer"]
 script = ExtResource("1_acnty")
@@ -48,12 +48,12 @@ grow_horizontal = 0
 
 [node name="Corazon1" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_w36rc")
+texture = ExtResource("3_0nig0")
 
 [node name="Corazon2" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_w36rc")
+texture = ExtResource("3_0nig0")
 
 [node name="Corazon3" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_w36rc")
+texture = ExtResource("3_0nig0")

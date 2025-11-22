@@ -32,7 +32,7 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	print("Un cuerpo ha entrado en el área: ", body.name)
-	print("aqui podriamos reproducir una animación de alegria")
+	
 	
 func damage_received():
 	print("daño recibido")
