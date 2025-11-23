@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpn282vwtwacc"]
+[gd_scene load_steps=6 format=3 uid="uid://dpn282vwtwacc"]
 
 [ext_resource type="Texture2D" uid="uid://xalh0jcceivx" path="res://assets/kenney/character/character_round_purple.png" id="1_q65ru"]
 [ext_resource type="Script" uid="uid://dpjwgln2baod1" path="res://personaje/personaje.gd" id="1_x0ldx"]
 [ext_resource type="Texture2D" uid="uid://b3g6jw5ld7im" path="res://assets/kenney/character/character_yellow_idle.png" id="3_i8xir"]
+[ext_resource type="AudioStream" uid="uid://h8gfplyjme3" path="res://assets/kenney/sounds/sfx_jump-high.ogg" id="4_fc0wv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fryba"]
 radius = 18.0
@@ -24,3 +25,6 @@ texture = ExtResource("3_i8xir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_fryba")
+
+[node name="AudioJump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fc0wv")

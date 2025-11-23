@@ -5,16 +5,21 @@ const SCENE_FINISH_FILE = "res://ui/scene_finish.tscn"
 signal player_health_updated(new_player_health)
 signal time_updated(seconds_left)
 
+@onready var audio_lose = $"../AudioLose"
+@onready var audio_win = $"../AudioWin"
+
 @export var player_health = 3
-@export var time_seconds = 100
+@export var time_seconds = 120
 
 func game_over():
+	audio_lose.play()
 	get_tree().change_scene_to_file(SCENE_FINISH_FILE)
 	
 func game_victory():
 	var scene_finish_instance = preload(SCENE_FINISH_FILE).instantiate()
 	scene_finish_instance.set_title("FELICIDADES HAS GANADO")
 	add_child(scene_finish_instance)
+	audio_win.play()
 
 
 func _on_personaje_player_hit():

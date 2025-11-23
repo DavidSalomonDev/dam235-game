@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://crmfkeiomfadm"]
+[gd_scene load_steps=3 format=3 uid="uid://crmfkeiomfadm"]
 
-[ext_resource type="Script" path="res://ui/SceneFinish.gd" id="1_vvg3l"]
+[ext_resource type="Script" uid="uid://cnqx18te4iuce" path="res://ui/SceneFinish.gd" id="1_vvg3l"]
+[ext_resource type="AudioStream" uid="uid://bt2dy77ghoy8q" path="res://assets/kenney/sounds/mixkit-medieval-show-fanfare-announcement-226.ogg" id="2_abyd6"]
 
 [node name="SceneFinish" type="CanvasLayer"]
 script = ExtResource("1_vvg3l")
@@ -26,5 +27,8 @@ horizontal_alignment = 1
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "VOLVER A JUGAR"
+
+[node name="AudioLose" type="AudioStreamPlayer" parent="VBoxContainer"]
+stream = ExtResource("2_abyd6")
 
 [connection signal="button_down" from="VBoxContainer/Button" to="." method="_on_button_button_down"]

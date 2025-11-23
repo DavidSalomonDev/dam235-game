@@ -7,6 +7,7 @@ signal player_hit()
 @export var jump_speed = 100
 @export var speed = 100
 @onready var sprite_2d = $Sprite2D
+@onready var audio_jump = $AudioJump
 
 
 func _physics_process(delta):
@@ -26,6 +27,7 @@ func _physics_process(delta):
 	var jump_pressed = Input.is_action_just_pressed("saltar")
 	if jump_pressed and is_on_floor():
 		velocity.y = velocity.y - jump_speed
+		audio_jump.play()
 	
 	move_and_slide()
 

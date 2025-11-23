@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dva1s2482hdu"]
+[gd_scene load_steps=25 format=3 uid="uid://dva1s2482hdu"]
 
 [ext_resource type="Script" uid="uid://d0jvacp7moed8" path="res://personaje/CameraFollow.gd" id="1_1h50n"]
 [ext_resource type="PackedScene" uid="uid://b6uqfrnmphs6d" path="res://suelos/puente.tscn" id="1_orcob"]
@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cd4qfkandxjhh" path="res://assets/kenney/decoration/background_cloudB.png" id="4_2uubs"]
 [ext_resource type="Texture2D" uid="uid://d2ushe2n3vkh" path="res://assets/kenney/decoration/flag_green_b.png" id="4_chx5c"]
 [ext_resource type="PackedScene" uid="uid://bljdonn1lbqqj" path="res://suelos/platform.tscn" id="4_h2314"]
+[ext_resource type="AudioStream" uid="uid://bt2dy77ghoy8q" path="res://assets/kenney/sounds/mixkit-medieval-show-fanfare-announcement-226.ogg" id="4_w0plp"]
 [ext_resource type="Texture2D" uid="uid://do53txljanfgs" path="res://assets/kenney/decoration/fence_broken.png" id="5_dfbeo"]
 [ext_resource type="PackedScene" uid="uid://i6fbee67uc6n" path="res://suelos/top.tscn" id="5_oijb5"]
+[ext_resource type="Script" uid="uid://dw7vv75amvkcg" path="res://niveles/flag.gd" id="6_24owi"]
 [ext_resource type="Texture2D" uid="uid://c3cl5eh04thqo" path="res://assets/kenney/decoration/cactus.png" id="6_kxycb"]
 [ext_resource type="Texture2D" uid="uid://d0170qv0mwvht" path="res://assets/kenney/decoration/bush.png" id="9_w6u3o"]
 [ext_resource type="Texture2D" uid="uid://cijr4v8v6tech" path="res://assets/kenney/decoration/torch_on_a.png" id="10_kl5pw"]
@@ -18,6 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://dqutpe12md5pv" path="res://assets/kenney/backgrounds/background_fade_trees.png" id="12_dfbeo"]
 [ext_resource type="PackedScene" uid="uid://dj5jiwqy6m03p" path="res://ui/canvas_layer_ui.tscn" id="12_usisn"]
 [ext_resource type="Script" uid="uid://cfljqw56ujgff" path="res://niveles/GameController.gd" id="13_1i60b"]
+[ext_resource type="Script" uid="uid://bfg7pu1ck0tf8" path="res://niveles/audio_stream_player_2d.gd" id="20_24owi"]
+[ext_resource type="AudioStream" uid="uid://c2l0kiyewcmig" path="res://assets/kenney/sounds/mixkit-game-level-music-689.ogg" id="20_kl5pw"]
+[ext_resource type="AudioStream" uid="uid://dlifvadk5yy53" path="res://assets/kenney/sounds/mixkit-game-bonus-reached-2065.ogg" id="23_w0plp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbmyf"]
 size = Vector2(105, 59)
@@ -71,6 +76,7 @@ object_to_follow = NodePath("../Personaje")
 [node name="Flag" type="Sprite2D" parent="."]
 position = Vector2(369, -100)
 texture = ExtResource("4_chx5c")
+script = ExtResource("6_24owi")
 
 [node name="Area2D" type="Area2D" parent="Flag"]
 collision_layer = 0
@@ -171,6 +177,19 @@ collision_layer = 2
 position = Vector2(172, -109)
 
 [node name="CanvasLayerUI" parent="." instance=ExtResource("12_usisn")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("20_24owi")
+
+[node name="MixkitGameLevelMusic689" type="AudioStreamPlayer" parent="AudioStreamPlayer2D"]
+stream = ExtResource("20_kl5pw")
+autoplay = true
+
+[node name="AudioLose" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_w0plp")
+
+[node name="AudioWin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_w0plp")
 
 [connection signal="player_health_updated" from="GameController" to="CanvasLayerUI" method="_on_game_controller_player_health_updated"]
 [connection signal="time_updated" from="GameController" to="CanvasLayerUI" method="_on_game_controller_time_updated"]

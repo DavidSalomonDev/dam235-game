@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnqx0yfe6tk6q"]
+[gd_scene load_steps=6 format=3 uid="uid://cnqx0yfe6tk6q"]
 
 [ext_resource type="Script" uid="uid://da57nhbopoted" path="res://enemigos/barril.gd" id="1_6a10g"]
 [ext_resource type="Texture2D" uid="uid://yf2uxclyfl8m" path="res://assets/kenney/enemies/bomb_active.png" id="2_eajbm"]
 [ext_resource type="Texture2D" uid="uid://b2u7qeqx6fyrx" path="res://assets/kenney/enemies/bomb.png" id="3_eajbm"]
+[ext_resource type="AudioStream" uid="uid://ioweu8deyak3" path="res://assets/kenney/sounds/sfx_gem.ogg" id="4_22iyw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_npyhx"]
 radius = 19.0263
@@ -27,5 +28,8 @@ texture = ExtResource("3_eajbm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_npyhx")
+
+[node name="AudioHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_22iyw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
